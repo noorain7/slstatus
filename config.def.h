@@ -69,7 +69,8 @@ static const struct arg args[] = {
 	{ cpu_perc, "[CPU  %s%%] ", NULL	      },
 	{ ram_perc, "[RAM  %s%%] ", NULL	      },
 	{ battery_state, "[ %s]", "BAT0" }, //Battery state
-	{ battery_perc, "[%s]", "BAT0" }, // Battery Percentage
-	{ run_command, "[:%4s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+	{ battery_perc, "[ %s]", "BAT0" }, // Battery Percentage
+	{ run_command, "[ %s ", estado }, // Volume Indicator
+        { run_command, " %s] ", "amixer sget Master | grep 'Mono:' | awk -F'[][]' '{ print $2 }'" }, 
 	{ datetime, "%s",           "%a %b %d %r" },
 };
