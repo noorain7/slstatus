@@ -62,14 +62,14 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const char estado[] = "a=$(amixer get Master | tail -n 1 | cut -d ' '\
-                               -f 8); if [ $a = '[on]' ]; then printf ''; \
-                               else printf 'ﱝ'; fi";
+                               -f 8); if [ $a = '[on]' ]; then printf 'VOL : '; \
+                               else printf 'MUTE:'; fi";
 static const struct arg args[] = {
 	/* function format          argument */
-	{ cpu_perc, "[CPU  %s%%] ", NULL	      },
-	{ ram_perc, "[RAM ﴮ %s%%] ", NULL	      },
-	{ battery_state, "[ %s]", "BAT0" }, //Battery state
-	{ battery_perc, "[  %s]", "BAT0" }, // Battery Percentage
+	{ cpu_perc, "[CPU : %s%%] ", NULL	      },
+	{ ram_perc, "[RAM : %s%%] ", NULL	      },
+	{ battery_state, "[BAT : %s", "BAT0" }, //Battery state
+	{ battery_perc, " %s]", "BAT0" }, // Battery Percentage
 	{ run_command, "[ %s ", estado }, // Volume Indicator
         { run_command, " %s] ", "amixer sget Master | grep 'Mono:' | awk -F'[][]' '{ print $2 }'" }, 
 	{ datetime, "%s",           "%a %b %d %r" },
