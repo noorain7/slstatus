@@ -71,6 +71,6 @@ static const struct arg args[] = {
 	{ battery_state, "[BAT : %s", "BAT0" }, //Battery state
 	{ battery_perc, " %s]", "BAT0" }, // Battery Percentage
 	{ run_command, "[ %s ", estado }, // Volume Indicator
-        { run_command, " %s] ", "amixer sget Master | grep 'Mono:' | awk -F'[][]' '{ print $2 }'" }, 
+        { run_command, "%s] ", "amixer sget Master | grep 'Mono:' | awk -F'[][]' '{ print $2 }'" }, 
 	{ datetime, "%s",           "%a %b %d %r" },
 };
